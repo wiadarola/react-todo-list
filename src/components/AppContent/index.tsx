@@ -9,6 +9,7 @@ export default function AppContent() {
     });
 
     const [activeList, setActiveList] = useState(-1);
+    const activeListPage = lists.find((list: any) => list.id === activeList);
 
     const contentStyle: React.CSSProperties = {
         display: 'grid',
@@ -16,6 +17,8 @@ export default function AppContent() {
     };
 
     function addNewList(name: String) {
+        if (name === '') { return; }
+
         const newList = {
             id: Math.random(),
             name,
@@ -27,20 +30,46 @@ export default function AppContent() {
         localStorage.setItem('lists', JSON.stringify([...lists, newList]));
     };
 
+    function addListItem(name: String) {
+        if (name === '') { return; }
+
+        const updateItems = [...activeListPage.items, { id: Math.random(), name }];
+        activeListPage.items = updateItems;
+
+        const newLists = [...lists.filter((list: any) => list.id !== activeListPage.id), activeListPage];
+
+        setLists(newLists);
+        localStorage.setItem('lists', JSON.stringify(newLists));
+    }
+
     function deleteList(id: number) {
         const newLists = lists.filter((list: any) => list.id !== id);
         if (newLists.length === 0) { setActiveList(-1); }
         else if (activeList === id) { setActiveList(newLists[0].id); }
+
         setLists(newLists);
         localStorage.setItem('lists', JSON.stringify(newLists));
     };
 
-    const activeListPage = lists.find((list: any) => list.id === activeList);
+    function deleteListItem(itemId: Number) {
+        const updateItems = activeListPage.items.filter((listItem: any) => listItem.id !== itemId);
+        activeListPage.items = updateItems;
+
+        const newLists = [...lists.filter((list: any) => list.id !== activeListPage.id), activeListPage];
+
+        setLists(newLists);
+        localStorage.setItem('lists', JSON.stringify(newLists));
+    }
 
     return (
         <div style={contentStyle}>
             < SideBar addNewList={addNewList} setActiveList={setActiveList} onDeleteClick={deleteList} lists={lists} />
-            {activeList === -1 ? <h1>Click on a list to get started</h1> : <><h1>{activeListPage.name}</h1>< ListPage page={activeListPage} /></>}
+            <div>
+                {
+                    activeList === -1 ? <h1>Click on a list to get started</h1> :
+                        <> <h1>List: {activeListPage.name}</h1> < ListPage page={activeListPage} addItem={addListItem} delItem={deleteListItem} /> </>
+                }
+            </div>
         </div>
     );
 };
