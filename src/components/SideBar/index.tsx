@@ -3,10 +3,11 @@ import { useState } from "react";
 interface SideBarProps {
     addNewList: Function;
     onDeleteClick: Function;
+    setActiveList: Function;
     lists: any[];
 }
 
-export default function SideBar({ addNewList, onDeleteClick, lists }: SideBarProps) {
+export default function SideBar({ addNewList, onDeleteClick, setActiveList, lists }: SideBarProps) {
     const [newListName, setNewListName] = useState('');
 
     const sideBarStyle: React.CSSProperties = {
@@ -28,7 +29,7 @@ export default function SideBar({ addNewList, onDeleteClick, lists }: SideBarPro
             <button onClick={() => onAddNewClick()}>Add List</button>
             {lists.map((list: any, index: number) => {
                 return <div key={index}>
-                    <span >{list.name}</span>
+                    <span onClick={() => setActiveList(list.id)}>{list.name}</span>
                     <button onClick={() => onDeleteClick(list.id)}>Delete</button>
                 </div>
             })}

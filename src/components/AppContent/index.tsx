@@ -33,9 +33,12 @@ export default function AppContent() {
         localStorage.setItem('lists', JSON.stringify(newLists));
     };
 
+    const activeListPage = lists.find((list: any) => list.id === activeList);
+
     return (
         <div style={contentStyle}>
-            < SideBar addNewList={addNewList} onDeleteClick={deleteList} lists={lists} />
+            < SideBar addNewList={addNewList} setActiveList={setActiveList} onDeleteClick={deleteList} lists={lists} />
+            {activeList === -1 ? <h1>Click on a list to get started</h1> : <h1>List Page: {activeListPage.name}</h1>}
         </div>
     );
 };
