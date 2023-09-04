@@ -1,39 +1,37 @@
-import Form from "../Form";
+import { useState } from "react";
 
 interface SideBarProps {
-    lists: Array<Object>;
-    setLists: Function;
-    setActiveList: Function;
+    addNewList: Function;
+    onDeleteClick: Function;
+    lists: any[];
 }
 
-export default function SideBar({ lists, setLists, setActiveList }: SideBarProps) {
-    function addList(name: String) {
-        const newList = {
-            id: Math.random(),
-            name: name,
-            items: [],
-        };
-        setLists([...lists, newList]);
-        localStorage.setItem('lists', JSON.stringify([...lists, newList]));
-    }
+export default function SideBar({ addNewList, onDeleteClick, lists }: SideBarProps) {
+    const [newListName, setNewListName] = useState('');
 
     const sideBarStyle: React.CSSProperties = {
-        display: 'grid',
-        gridAutoColumns: 'auto',
-        backgroundColor: 'gray',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: 'grey',
+    };
+
+    function onAddNewClick() {
+        addNewList(newListName);
+        setNewListName('');
     };
 
     return (
         <div style={sideBarStyle}>
-            <div>< Form add={addList} /></div>
-            {lists.map((list: any) => {
-                return (
-                    <div onClick={() => setActiveList(list.id)} key={list.id} >
-                        {list.name}
-                        <span onClick={() => console.log("poop")}>&#10005;</span>
-                    </div>
-                );
+            <h1>SideBar</h1>
+            <input type="text" value={newListName} id="newListInput" onChange={(e) => setNewListName(e.target.value)} />
+            <button onClick={() => onAddNewClick()}>Add List</button>
+            {lists.map((list: any, index: number) => {
+                return <div key={index}>
+                    <span >{list.name}</span>
+                    <button onClick={() => onDeleteClick(list.id)}>Delete</button>
+                </div>
             })}
-        </div >
+        </div>
     );
 };
