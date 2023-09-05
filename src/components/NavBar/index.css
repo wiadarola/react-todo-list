@@ -9,11 +9,11 @@
 
 #nav-icons {
     margin-right: 10px;
-    transform: translate(0, 0.2em);
 }
 
 /* Updated Navbar Styles */
 nav {
+    transform: translate(0, 0.2em);
     background: linear-gradient(to right, #2c3e50, #246997);
     /* Gradient from deep blue to lighter blue */
     /* Subtle shadow for depth */
