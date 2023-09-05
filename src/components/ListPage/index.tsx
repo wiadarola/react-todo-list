@@ -1,4 +1,8 @@
 import { Key, useState } from "react";
+import './index.css';
+import NewForm from '../NewForm';
+import ListItem from '../ListItem';
+
 interface ListPageProps {
     page: {
         name: string,
@@ -7,24 +11,34 @@ interface ListPageProps {
     },
     addItem: Function,
     delItem: Function,
+    updateItem: Function,
 }
 
+export default function ListPage({ page, addItem, delItem, updateItem }: ListPageProps) {
+    const [showCompleted, setShowCompleted] = useState(true);
 
+    const [seed, setSeed] = useState(1);
+    const reset = () => {
+        setSeed(Math.random());
+    }
 
-export default function ListPage({ page, addItem, delItem }: ListPageProps) {
-    const [newItemName, setNewItemName] = useState('');
+    function onItemCheckChange(itemId: Number, checked: Boolean) {
+        updateItem(itemId, checked);
+        reset();
+    }
 
     return (
-        <div>
-            <input id='ListPageInput' value={newItemName} type="text" onChange={(e) => setNewItemName(e.target.value)} />
-            <button onClick={() => addItem(newItemName)}>Add</button>
-            <ul>
-                {page.items.map((item: { id: Key, name: String }) =>
-                    <li key={item.id}>
-                        <span>{item.name}</span>
-                        <button onClick={() => delItem(item.id)}>U+274C</button>
-                    </li>
-                )}
+        <div id="ListPage">
+            <div id="header">
+                <h1>{page.name}</h1>
+                <NewForm addNew={addItem} newWhat={`${page.name.toLowerCase()} item`} />
+                <div id="showCompleted"><input type="checkbox" value="Show Completed" checked={showCompleted} onClick={() => setShowCompleted(!showCompleted)} /> <label>Show Completed</label></div>
+            </div>
+            <ul style={{ padding: "0" }}>
+                {page.items.map((item: { id: Key, name: String, checked: boolean }) => {
+                    if (!showCompleted && item.checked) return null;
+                    return <ListItem item={item} delItem={delItem} onItemCheckChange={onItemCheckChange} />
+                })}
             </ul>
         </div>
     );

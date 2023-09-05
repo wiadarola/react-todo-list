@@ -1,0 +1,45 @@
+.listItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.listItem div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.listItem:first-child {
+    border-top: 1px solid #ccc;
+}
+
+.listItem span {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.listItem button {
+    margin: 0;
+    padding: 0px 15px;
+    background-color: white;
+    border: none;
+    border-left: 1px solid #ccc;
+    font-size: 30px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.listItem button:hover {
+    background-color: #E74C3C;
+    cursor: pointer;
+}
+
+.listItem button:active {
+    background-color: white;
+}

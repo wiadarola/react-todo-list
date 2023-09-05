@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import SideBar from '../SideBar';
 import ListPage from '../ListPage';
+import WelcomePage from '../WelcomePage';
 
 export default function AppContent() {
     const [lists, setLists] = useState(() => {
@@ -42,7 +43,7 @@ export default function AppContent() {
     function addListItem(name: String) {
         if (name === '') { return; }
 
-        const updateItems = [...activeListPage.items, { id: Math.random(), name }];
+        const updateItems = [...activeListPage.items, { id: Math.random(), name, checked: false }];
         activeListPage.items = updateItems;
 
         const newLists = [...lists.filter((list: any) => list.id !== activeListPage.id), activeListPage];
@@ -70,14 +71,26 @@ export default function AppContent() {
         localStorage.setItem('lists', JSON.stringify(newLists));
     }
 
+    function updateListState(itemId: Number, checked: boolean) {
+        const updateItems = activeListPage.items.map((listItem: any) => {
+            if (listItem.id === itemId) { listItem.checked = checked; }
+            return listItem;
+        });
+        activeListPage.items = updateItems;
+
+        const newLists = [...lists.filter((list: any) => list.id !== activeListPage.id), activeListPage];
+
+        setLists(newLists);
+        localStorage.setItem('lists', JSON.stringify(newLists));
+    }
+
     return (
         <div style={contentContainerStyle}>
             <div style={contentStyle}>
                 < SideBar addNewList={addNewList} setActiveList={setActiveList} onDeleteClick={deleteList} lists={lists} />
             </div>
             <div style={contentStyle}>
-                {activeList === -1 ? <h1>Click on a list to get started</h1> :
-                    <> <h1>List: {activeListPage.name}</h1> < ListPage page={activeListPage} addItem={addListItem} delItem={deleteListItem} /> </>}
+                {activeList === -1 ? < WelcomePage /> : < ListPage page={activeListPage} updateItem={updateListState} addItem={addListItem} delItem={deleteListItem} />}
             </div>
         </div>
     );

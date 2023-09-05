@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './index.css';
+import NewForm from "../NewForm";
 
 interface SideBarProps {
     addNewList: Function;
@@ -9,7 +10,6 @@ interface SideBarProps {
 }
 
 export default function SideBar({ addNewList, onDeleteClick, setActiveList, lists }: SideBarProps) {
-    const [newListName, setNewListName] = useState('');
 
     const sideBarStyle: React.CSSProperties = {
         display: 'flex',
@@ -29,11 +29,7 @@ export default function SideBar({ addNewList, onDeleteClick, setActiveList, list
             <div style={sideBarHeader}>
                 <h1>Lists</h1>
             </div>
-            <form id="newListForm" onSubmit={(e) => { e.preventDefault(); setNewListName(''); addNewList(newListName); }}>
-                <input type="text" value={newListName} id="newListInput" onChange={(e) => setNewListName(e.target.value)} placeholder="New list..." />
-                <img src="https://img.icons8.com/30/16B8F3/plus.png" alt="Website" onClick={(e) => { e.preventDefault(); setNewListName(''); addNewList(newListName) }} />
-            </form>
-
+            <NewForm addNew={addNewList} newWhat="list" />
             <ul>
                 {lists.map((list: any, index: number) => {
                     return <li key={index}>
