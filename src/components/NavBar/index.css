@@ -1,7 +1,19 @@
 .nav-icon {
     margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.nav-icon:hover {
+    transform: scale(1.1);
 }
 
 #nav-icons {
     margin-right: 10px;
+}
+
+/* Updated Navbar Styles */
+nav {
+    background: linear-gradient(to right, #2c3e50, #246997);
+    /* Gradient from deep blue to lighter blue */
+    /* Subtle shadow for depth */
 }

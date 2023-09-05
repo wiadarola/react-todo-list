@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SideBar from '../SideBar';
 import ListPage from '../ListPage';
 import WelcomePage from '../WelcomePage';
+import './index.css';
 
 export default function AppContent() {
     const [lists, setLists] = useState(() => {
@@ -15,20 +16,6 @@ export default function AppContent() {
 
     const [activeList, setActiveList] = useState(-1);
     const activeListPage = lists.find((list: any) => list.id === activeList);
-
-    const contentContainerStyle: React.CSSProperties = {
-        display: 'grid',
-        gridTemplateColumns: '2fr 4fr',
-        gap: '15px',
-        margin: '15px'
-    };
-
-    const contentStyle: React.CSSProperties = {
-        border: '1px solid black',
-        borderRadius: '5px',
-        boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)',
-        backgroundColor: 'white',
-    };
 
     function addNewList(name: String) {
         if (name === '') { return; }
@@ -89,12 +76,25 @@ export default function AppContent() {
     }
 
     return (
-        <div style={contentContainerStyle}>
-            <div style={contentStyle}>
-                < SideBar addNewList={addNewList} setActiveList={setActiveList} onDeleteClick={deleteList} lists={lists} />
+        <div className="content-container">
+            <div className="content">
+                <SideBar
+                    addNewList={addNewList}
+                    setActiveList={setActiveList}
+                    onDeleteClick={deleteList}
+                    lists={lists}
+                />
             </div>
-            <div style={contentStyle}>
-                {activeList === -1 ? < WelcomePage /> : < ListPage page={activeListPage} updateItem={updateListState} addItem={addListItem} delItem={deleteListItem} />}
+            <div className="content">
+                {activeList === -1
+                    ? <WelcomePage />
+                    : <ListPage
+                        page={activeListPage}
+                        updateItem={updateListState}
+                        addItem={addListItem}
+                        delItem={deleteListItem}
+                    />
+                }
             </div>
         </div>
     );

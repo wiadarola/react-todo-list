@@ -6,8 +6,8 @@ export default function App() {
     display: 'grid',
     gridTemplateRows: 'auto 1fr',
     height: '100vh',
-    backgroundColor: '#032c62',
     fontFamily: 'sans-serif',
+    background: 'linear-gradient(to right, #2c3e50, #246997)',
   };
 
   return (

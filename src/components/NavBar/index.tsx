@@ -4,7 +4,6 @@ export default function NavBar() {
     const navStyle: React.CSSProperties = {
         width: '100%',
         height: '50px',
-        backgroundColor: 'black',
         display: 'grid',
         gridTemplateColumns: '1fr auto',
         fontSize: '25px',

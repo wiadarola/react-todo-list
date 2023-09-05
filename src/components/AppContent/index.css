@@ -1,0 +1,23 @@
+.content-container {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    gap: 15px;
+    margin: 15px;
+}
+
+.content {
+    border: 1px solid #E0E0E0;
+    /* Lighter border compared to solid black */
+    border-radius: 5px;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.10);
+    /* Lighter and more diffused shadow */
+    background-color: white;
+    overflow: hidden;
+    /* This is to ensure border radius affects child components too */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.content:hover {
+    /* Slight lift on hover */
+    box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.15);
+}
