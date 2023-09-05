@@ -17,8 +17,5 @@ This project was born out of a personal initiative to get familiarized with Reac
 3. Run the development server using `npm start`.
 4. Explore and add tasks to your heart's content!
 
-## Contributions
-Feel free to raise issues, provide feedback, or make pull requests. All contributions are welcome!
-
 ## License
 MIT
