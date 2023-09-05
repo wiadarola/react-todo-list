@@ -7,8 +7,16 @@
     padding: 10px;
 }
 
+#sideBar #newListForm {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
 #sideBar img {
     cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 #sideBar img:active {
@@ -17,9 +25,9 @@
 }
 
 #sideBar input {
-    width: 80%;
+    width: 90%;
     height: 40px;
-    margin: 10px 0;
+    margin: 10px 10px;
     padding: 0 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -50,6 +58,10 @@
     height: 60px;
 }
 
+#sideBar li:first-child {
+    border-top: 1px solid #ccc;
+}
+
 #sideBar li span {
     display: flex;
     align-items: center;
@@ -58,6 +70,7 @@
     font-size: 20px;
     font-weight: 600;
     color: #333;
+    transition: background-color 0.2s ease-in-out;
 }
 
 #sideBar li span:hover {
@@ -70,13 +83,19 @@
 
 #sideBar li button {
     margin: 0;
+    padding: 0px 15px;
+    background-color: white;
+    border: none;
+    border-left: 1px solid #ccc;
+    font-size: 30px;
+    transition: background-color 0.2s ease-in-out;
 }
 
 #sideBar li button:hover {
-    background-color: #a12727;
+    background-color: #E74C3C;
     cursor: pointer;
 }
 
 #sideBar li button:active {
-    background-color: #7a1d1d;
+    background-color: white;
 }
