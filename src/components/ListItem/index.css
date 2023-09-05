@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
+    height: 60px;
 }
 
 .listItem div {
@@ -33,6 +34,7 @@
     border-left: 1px solid #ccc;
     font-size: 30px;
     transition: background-color 0.2s ease-in-out;
+    height: 100%;
 }
 
 .listItem button:hover {

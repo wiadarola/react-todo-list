@@ -16,18 +16,9 @@ export default function SideBar({ addNewList, onDeleteClick, setActiveList, list
         height: '100%',
     };
 
-    const sideBarHeader: React.CSSProperties = {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '10px',
-    };
-
     return (
         <div style={sideBarStyle} id='sideBar'>
-            <div style={sideBarHeader}>
-                <h1>Lists</h1>
-            </div>
+            <h1>Lists</h1>
             <NewForm addNew={addNewList} newWhat="list" />
             <ul>
                 {lists.map((list: any, index: number) => {

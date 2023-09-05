@@ -18,7 +18,7 @@ export default function AppContent() {
 
     const contentContainerStyle: React.CSSProperties = {
         display: 'grid',
-        gridTemplateColumns: '1fr 3fr',
+        gridTemplateColumns: '2fr 4fr',
         gap: '15px',
         margin: '15px'
     };
