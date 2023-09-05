@@ -9,6 +9,7 @@
 
 #nav-icons {
     margin-right: 10px;
+    transform: translate(0, 0.2em);
 }
 
 /* Updated Navbar Styles */

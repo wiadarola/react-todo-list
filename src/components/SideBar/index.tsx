@@ -18,7 +18,7 @@ export default function SideBar({ addNewList, onDeleteClick, setActiveList, list
 
     return (
         <div style={sideBarStyle} id='sideBar'>
-            <h1>Lists</h1>
+            <h1>My Lists</h1>
             <NewForm addNew={addNewList} newWhat="list" />
             <ul>
                 {lists.map((list: any, index: number) => {
