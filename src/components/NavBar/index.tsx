@@ -5,7 +5,8 @@ export default function NavBar() {
         width: '100%',
         height: '50px',
         display: 'grid',
-        gridTemplateColumns: '1fr auto',
+        gridTemplateColumns: '1fr auto auto auto',
+        gridTemplateRows: 'auto',
         fontSize: '25px',
     };
 
@@ -30,18 +31,20 @@ export default function NavBar() {
 
     return (
         <nav style={navStyle}>
-            <span style={spanStyle}><span style={lowerH1Style}>my</span><span style={upperH1Style}>Lists</span>&nbsp;-&nbsp;<span>A React & TypeScript ToDo List</span></span>
-            <div id="nav-icons">
-                <a href="https://wiadarola.github.io" target="_blank" rel="noreferrer" className="nav-icon">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Website" />
-                </a>
-                <a href="https://github.com/wiadarola" target="_blank" rel="noreferrer" className="nav-icon">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub" />
-                </a>
-                <a href="https://www.linkedin.com/in/wiadarola/" target="_blank" rel="noreferrer" className="nav-icon">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn" />
-                </a>
-            </div>
+            <span style={spanStyle}>
+                <span style={lowerH1Style}>my</span>
+                <span style={upperH1Style}>Lists</span>
+                <span id="nav-desc">&nbsp;-&nbsp;A React & TypeScript ToDo List</span>
+            </span>
+            <a href="https://wiadarola.github.io" target="_blank" rel="noreferrer" className="nav-icon">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Website" />
+            </a>
+            <a href="https://github.com/wiadarola" target="_blank" rel="noreferrer" className="nav-icon">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub" />
+            </a>
+            <a href="https://www.linkedin.com/in/wiadarola/" target="_blank" rel="noreferrer" className="nav-icon">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn" />
+            </a>
         </nav>
     );
 }
