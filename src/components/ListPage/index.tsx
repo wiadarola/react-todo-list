@@ -9,6 +9,8 @@ interface ListPageProps {
     delItem: Function,
 }
 
+
+
 export default function ListPage({ page, addItem, delItem }: ListPageProps) {
     const [newItemName, setNewItemName] = useState('');
 

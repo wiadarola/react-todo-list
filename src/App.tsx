@@ -6,7 +6,7 @@ export default function App() {
     display: 'grid',
     gridTemplateRows: 'auto 1fr',
     height: '100vh',
-    backgroundColor: 'lightgray',
+    backgroundColor: '#032c62',
     fontFamily: 'sans-serif',
   };
 

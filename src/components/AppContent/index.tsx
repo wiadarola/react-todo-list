@@ -11,9 +11,17 @@ export default function AppContent() {
     const [activeList, setActiveList] = useState(-1);
     const activeListPage = lists.find((list: any) => list.id === activeList);
 
-    const contentStyle: React.CSSProperties = {
+    const contentContainerStyle: React.CSSProperties = {
         display: 'grid',
         gridTemplateColumns: '1fr 3fr',
+    };
+
+    const contentStyle: React.CSSProperties = {
+        border: '1px solid black',
+        borderRadius: '5px',
+        margin: '10px',
+        boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)',
+        backgroundColor: 'white',
     };
 
     function addNewList(name: String) {
@@ -62,13 +70,13 @@ export default function AppContent() {
     }
 
     return (
-        <div style={contentStyle}>
-            < SideBar addNewList={addNewList} setActiveList={setActiveList} onDeleteClick={deleteList} lists={lists} />
-            <div>
-                {
-                    activeList === -1 ? <h1>Click on a list to get started</h1> :
-                        <> <h1>List: {activeListPage.name}</h1> < ListPage page={activeListPage} addItem={addListItem} delItem={deleteListItem} /> </>
-                }
+        <div style={contentContainerStyle}>
+            <div style={contentStyle}>
+                < SideBar addNewList={addNewList} setActiveList={setActiveList} onDeleteClick={deleteList} lists={lists} />
+            </div>
+            <div style={contentStyle}>
+                {activeList === -1 ? <h1>Click on a list to get started</h1> :
+                    <> <h1>List: {activeListPage.name}</h1> < ListPage page={activeListPage} addItem={addListItem} delItem={deleteListItem} /> </>}
             </div>
         </div>
     );
