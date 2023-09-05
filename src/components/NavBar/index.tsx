@@ -13,7 +13,7 @@ export default function NavBar() {
     const spanStyle: React.CSSProperties = {
         color: 'white',
         fontWeight: '500',
-        marginLeft: '10px',
+        marginLeft: '20px',
         cursor: 'default',
     };
 
@@ -31,7 +31,7 @@ export default function NavBar() {
 
     return (
         <nav style={navStyle}>
-            <span style={spanStyle}><span style={lowerH1Style}>my</span><span style={upperH1Style}>Lists</span><span>&nbsp;- A React-TypeScript ToDo List</span></span>
+            <span style={spanStyle}><span style={lowerH1Style}>my</span><span style={upperH1Style}>Lists</span>&nbsp;-&nbsp;<span>A React-TypeScript ToDo List</span></span>
             <div id="nav-icons">
                 <a href="https://wiadarola.github.io" target="_blank" rel="noreferrer" className="nav-icon">
                     <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Website" />

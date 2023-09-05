@@ -14,12 +14,13 @@ export default function AppContent() {
     const contentContainerStyle: React.CSSProperties = {
         display: 'grid',
         gridTemplateColumns: '1fr 3fr',
+        gap: '15px',
+        margin: '15px'
     };
 
     const contentStyle: React.CSSProperties = {
         border: '1px solid black',
         borderRadius: '5px',
-        margin: '10px',
         boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)',
         backgroundColor: 'white',
     };
