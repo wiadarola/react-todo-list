@@ -6,7 +6,11 @@ import WelcomePage from '../WelcomePage';
 export default function AppContent() {
     const [lists, setLists] = useState(() => {
         const storedLists = localStorage.getItem('lists');
-        return storedLists ? JSON.parse(storedLists) : [];
+        return storedLists ? [...JSON.parse(storedLists)] : [{
+            id: Math.random(),
+            name: "Groceries",
+            items: [{ id: Math.random(), name: "Apples", checked: true }, { id: Math.random(), name: "Bananas", checked: false }]
+        }];
     });
 
     const [activeList, setActiveList] = useState(-1);
