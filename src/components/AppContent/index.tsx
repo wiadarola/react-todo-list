@@ -77,7 +77,7 @@ export default function AppContent() {
 
     return (
         <div className="content-container">
-            <div className="content">
+            <div className="content" id="sidebar-content">
                 <SideBar
                     addNewList={addNewList}
                     setActiveList={setActiveList}
@@ -85,7 +85,7 @@ export default function AppContent() {
                     lists={lists}
                 />
             </div>
-            <div className="content">
+            <div className="content" id='content-content'>
                 {activeList === -1
                     ? <WelcomePage />
                     : <ListPage

@@ -18,10 +18,7 @@
 
 #ListPage .newListForm {
     display: flex;
-}
-
-#ListPage .newListForm input {
-    width: max-content;
+    margin-right: 10px;
 }
 
 #ListPage .newListForm img {
@@ -51,4 +48,17 @@
     max-height: 72vh;
     overflow-y: auto;
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    #ListPage #header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #ListPage ul {
+        max-height: 38vh;
+    }
 }

@@ -1,0 +1,13 @@
+#mobile-welcome {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #mobile-welcome {
+        display: block;
+    }
+
+    #desktop-welcome {
+        display: none;
+    }
+}

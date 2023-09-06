@@ -1,12 +1,14 @@
 import React from 'react';
+import './index.css';
 
 export default function WelcomePage() {
     const containerStyle: React.CSSProperties = {
         display: 'flex',
         flexDirection: 'column',
-        height: '100%', // Use full height of the container it's placed in
         padding: '20px',
         textAlign: 'center',
+        overflowY: 'auto',
+        maxHeight: '91%',
     };
 
     const titleStyle: React.CSSProperties = {
@@ -34,7 +36,9 @@ export default function WelcomePage() {
                 in your browser, so you can access your lists from anywhere. No account
                 required!
                 <br /><br />
-                Click on the sidebar to start creating your lists. Happy organizing!
+                <span id="desktop-welcome">Click on the sidebar to start creating your lists. Happy organizing!</span>
+                <span id="mobile-welcome">Click above to start creating your lists. Happy organizing!</span>
+
             </div>
         </div>
     );

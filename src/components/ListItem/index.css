@@ -10,6 +10,7 @@
 .listItem div {
     display: grid;
     grid-template-columns: auto 1fr;
+    min-width: 0;
 }
 
 .listItem:first-child {
@@ -24,6 +25,9 @@
     font-weight: 600;
     color: #333;
     transition: background-color 0.2s ease-in-out;
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .listItem button {
