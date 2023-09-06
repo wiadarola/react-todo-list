@@ -19,6 +19,7 @@ export default function ListPage({ page, addItem, delItem, updateItem }: ListPag
 
     const [seed, setSeed] = useState(1);
     const reset = () => {
+        seed;
         setSeed(Math.random());
     }
 
